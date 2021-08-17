@@ -1,0 +1,75 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.row {
+
+    padding-left: 20%;
+    margin-top: 20%;
+    border-bottom: 8px black solid;
+}
+
+
+ .profile-pic {
+   padding: 5%;
+    
+}
+
+.profile-detail {
+  
+} 
+
+.profile-detail h3 {
+    font-size: 28px;
+    font-weight: 400;
+}
+
+.profile-detail h1 {
+    font-size: 76px;
+    font-weight: bolder;
+}
+img {
+    width: 70%;
+    border-radius: 50%;
+}
+
+.contact-me {
+    margin-top: 20px;
+    padding:14px;
+    background-color: #0699A6;
+    color: white;
+    
+}
+
+.about {
+    padding-top: 6%;
+    border-bottom: 8px black solid;
+}
+
+.about p {
+    font-size: 24px;
+    font-weight: bold;
+    padding-bottom: 20px;
+}
+
+
+.details {
+    padding-top: 12%;
+}
+.details p {
+    width: 80%;
+}
+
+.edu-year {
+    padding-left: 0px
+}
+.experience {
+    padding-top: 8%;
+}
+
+.education {
+    padding-top: 0;
+}
