@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume | Isaac John</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="form.css">
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
@@ -182,13 +183,19 @@
                         ?>
                     </div>
                     <div class="card-body">
-                        <form action="process.php" method="post">
-                            <input type="text" name="UName" placeholder="User Name" class="mb-2 form-control">
-                            <input type="email" name="Email" placeholder="Email" class="mb-2 form-control">
-                            <input type="text" name="Subject" placeholder="Subject" class="mb-2 form-control">
-                            <textarea name="msg" class="mb-2 form-control" placeholder="Write The Message"></textarea>
-                            <button class="btn btn-success" name="btn-send"> Send </button>
-                        </form>
+                    <form id="fs-frm" name="simple-contact-form" accept-charset="utf-8" action="https://formspree.io/f/{form_id}" method="post">
+                    <fieldset id="fs-frm-inputs">
+                        <label for="full-name">Full Name</label>
+                        <input type="text" name="name" id="full-name" placeholder="Full Name" required="">
+                        <label for="email-address">Email Address</label>
+                        <input type="email" name="_replyto" id="email-address" placeholder="Email" required="">
+                        <label for="message">Message</label>
+                        <textarea rows="5" name="message" id="message" placeholder="Your message" required=""></textarea>
+                        <input type="hidden" name="_subject" id="email-subject" value="Contact Form Submission">
+                    </fieldset>
+                    <input type="submit" value="Submit">
+                    </form>
+
                     </div>
         </section>
          
