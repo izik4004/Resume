@@ -22,8 +22,8 @@
                 $subject = 'Contact Request From ' . $name;
                 $body = '<h2>Contact Request</h2>
                 <h4>Name</h4><p>'.$name.'</p>
-                <h4>Name</h4><p>'.$email.'</p>
-                <h4>Name</h4><p>'.$message.'</p>
+                <h4>Email</h4><p>'.$email.'</p>
+                <h4>Message</h4><p>'.$message.'</p>
                 ';
 
                 //Headers
@@ -223,7 +223,7 @@
             </div>
             <div class="col-md-6">
               
-              <input type="text" class="form-control" name="email" placeholder="Email" value="<?php echo isset ($_POST['email']) ? $email : ''; ?>">>
+              <input type="text" class="form-control" name="email" placeholder="Email" value="<?php echo isset ($_POST['email']) ? $email : ''; ?>">
             </div>
             <!-- <div class="col-12">
               
