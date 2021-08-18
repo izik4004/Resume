@@ -230,7 +230,7 @@
               <input type="text" class="mt-4 form-control" name="inputAddress" name="tel" placeholder="Tel">
             </div> -->
             <div class="mt-4 message">
-                <textarea placeholder="Write your message" cols="75" rows="10"  name="message">value="<?php echo isset ($_POST['message']) ? $message : ''; ?>"></textarea>
+                <textarea placeholder="Write your message" cols="75" rows="10"  name="message" value="<?php echo isset ($_POST['message']) ? $message : ''; ?>"></textarea>
             </div>
              
             <div class="mt-4 mb-5 col-12">
