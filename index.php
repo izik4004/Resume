@@ -1,3 +1,53 @@
+<?php
+
+    $msg = '';
+    $msgClass = '';
+
+    if(filter_has_var(INPUT_POST, 'submit')){
+        //Getting Data from form
+        $name = htmlspecialchars($_POST['name']);
+        $email = htmlspecialchars($_POST['email']);
+        $message = htmlspecialchars($_POST['message']);
+
+    
+
+       // check required fields
+
+        if(!empty($email) && !empty($name) && !empty($message)) {
+            if(filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
+                $msg = 'Please use valid email';
+                $msgClass = 'alert-danger';
+            } else {
+                 $toEmail = 'imazik4004@gmail.com';
+                $subject = 'Contact Request From ' . $name;
+                $body = '<h2>Contact Request</h2>
+                <h4>Name</h4><p>'.$name.'</p>
+                <h4>Name</h4><p>'.$email.'</p>
+                <h4>Name</h4><p>'.$message.'</p>
+                ';
+
+                //Headers
+                $headers = "MIME-Version: 1.0" . "\r\n";
+                $headers .="Content-Type:text/html;charset=UTF-8" . " \r\n";
+
+                
+                $headers .= "From: " .$name. "<".$email.">". "\r\n";
+                if(mail($email, $subject,$body,$headers)){
+                    $msg = 'Your email has been sent';
+                    $msgClass = 'alert-success';
+                }else {
+                    $msg = 'Your email was not sent';
+                    $msgClass = 'alert-danger';
+                }
+            }
+           
+        } else {
+            $msg = 'Please fill all fields';
+            $msgClass = 'alert-danger';
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -161,32 +211,33 @@
           <section class="mx-auto row col-6" id="form">
           <h2 class="mt-5 mb-5 text-center">Contact Me</h2>
           <p class="text-center">I am available to work on your projects and bring your ideas to life. I am just a click away.</p>
-       
-          <form class="mx-auto mt-5 row">
+        
+            <?php if ($msg != ''): ?>
+            <div class="alert <?php echo $msgClass; ?>"><?php echo $msg; ?></div>
+            <?php endif; ?>
+            
+          <form method="post" name="emailContact" class="mx-auto row ">
             <div class="col-md-6">
              
-              <input type="text" class="form-control" id="name" placeholder="Name">
+              <input type="text" class="form-control" name="name" placeholder="Name" value="<?php echo isset ($_POST['name']) ? $name : ''; ?>">
             </div>
             <div class="col-md-6">
               
-              <input type="text" class="form-control" id="email" placeholder="Email">
+              <input type="text" class="form-control" name="email" placeholder="Email" value="<?php echo isset ($_POST['email']) ? $email : ''; ?>">>
             </div>
-            <div class="col-12">
+            <!-- <div class="col-12">
               
-              <input type="text" class="mt-4 form-control" id="inputAddress" placeholder="Tel">
-            </div>
+              <input type="text" class="mt-4 form-control" name="inputAddress" name="tel" placeholder="Tel">
+            </div> -->
             <div class="mt-4 message">
-                <textarea placeholder="Write your message" cols="75" rows="10" name="message"></textarea>
+                <textarea placeholder="Write your message" cols="75" rows="10"  name="message">value="<?php echo isset ($_POST['message']) ? $message : ''; ?>"></textarea>
             </div>
              
             <div class="mt-4 mb-5 col-12">
-              <button type="submit" class="btn btn-primary">Sign in</button>
+              <button type="submit" name="submit" class="btn btn-primary">Send</button>
             </div>
           </form>
         </section>
          
-        <!-- <div class="message">
-            <textarea name="" id="" cols="30" rows="10"></textarea>
-        </div> -->
     </body>
 </html>
