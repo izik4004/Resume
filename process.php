@@ -7,7 +7,7 @@
        $Subject = $_POST['Subject'];
        $Msg = $_POST['msg'];
 
-       if(empty($UserName) || empty($Email) || empty($Subject) || empty($Msg))
+       if(!empty($UserName) || !empty($Email) || !empty($Subject) || !empty($Msg))
        {
            header('Location:index.php?error');
        }
