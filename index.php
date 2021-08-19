@@ -1,33 +1,3 @@
-<?php 
-    $message_sent = false;
-    if (isset($_POST['email']) && $_POST['email'] != '') {
-       
-        if(filter_var($_POST['name'], FILTER_VALIDATE_EMAIL)) {
-        
-            $userName = $_POST['name'];
-            $userEmail = $_POST['email'];
-            $messageSubject = $_POST['subject'];
-            $Message = $_POST['message'];
-            
-            $to = "imazik4004@gmail.com";
-            $body = "";
-            
-            $body .= "From: ".$userName. "\r\n";
-            $body .= "Email: ".$userEmail. "\r\n";
-            $body .= "From: ".$message. "\r\n";
-            
-            // mail($to,$message,$body);
-
-            $message_sent = true;
-    }
-
-  
-}
-   
-?>
-
-
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -193,40 +163,32 @@
           <p class="text-center">I am available to work on your projects and bring your ideas to life. I am just a click away.</p>   
             </div>
 
-            <?php
-                if($message_sent):
-            ?>
-                <h2> Thanks, I will get in touch with you</h2>
-            <?php
-            else:
-            ?>
-                <div class="container">
-                    <form action="index.php" method="POST" class="form">
-                        <div class="mb-4 form-group">
-                            <label for="name" class="form-label">Name</label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="name" tabindex="1" required>
-                        </div>
-                        <div class="mb-4 form-group">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="email" tabindex="2" required>
-                        </div>
-                        <div class="mb-4 form-group">
-                            <label for="subject" class="form-label">Subject</label>
-                            <input type="text" class="form-control" id="subject" name="subject" placeholder="subject" tabindex="3" required>
-                        </div>
-                        <div class="mb-4 form-group">
-                            <label for="message" class="form-label">Message</label>
-                            <textarea class="form-control" rows="5" cols="50" id="message" name="message" placeholder="Enter Message..." tabindex="4"></textarea>
-                        </div>
-                        <div>
-                            <button type="submit" class="btn">Send Message!</button>
-                        </div>
-                    </form>
-                 </div>
+            <?php 
+                            $Msg = "";
+                            if(isset($_GET['error']))
+                            {
+                                $Msg = " Please Fill in the Blanks ";
+                                echo '<div class="alert alert-danger">'.$Msg.'</div>';
+                            }
 
-                 <?php
-                 endif;
-                 ?>
+                            if(isset($_GET['success']))
+                            {
+                                $Msg = " Your Message Has Been Sent ";
+                                echo '<div class="alert alert-success">'.$Msg.'</div>';
+                            }
+                        
+                        ?>
+              
+                    <div class="card-body">
+                        <form action="process.php" method="post">
+                            <input type="text" name="UName" placeholder="User Name" class="mb-2 form-control">
+                            <input type="email" name="Email" placeholder="Email" class="mb-2 form-control">
+                            <input type="text" name="Subject" placeholder="Subject" class="mb-2 form-control">
+                            <textarea name="msg" class="mb-2 form-control" placeholder="Write The Message"></textarea>
+                            <button class="btn btn-success" name="btn-send"> Send </button>
+                        </form>
+                    </div>
+               
         </section>
          
     </body>
