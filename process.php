@@ -17,12 +17,12 @@
 
            if(mail($to,$Subject,$Msg,$Email))
            {
-               header("Location:index.php?success");
+               header('Location:index.php?success');
            }
        }
     }
     else
     {
-        header("Location:index.php");
+        header('Location:index.php');
     }
 ?>
