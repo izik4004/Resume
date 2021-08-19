@@ -1,3 +1,32 @@
+<?php 
+
+    if(isset($_POST['btn-send']))
+    {
+       $UserName = $_POST['UName'];
+       $Email = $_POST['Email'];
+       $Subject = $_POST['Subject'];
+       $Msg = $_POST['msg'];
+
+       if(empty($UserName) || empty($Email) || empty($Subject) || empty($Msg))
+       {
+           header('index.php?error');
+       }
+       else
+       {
+           $to = "imazik4004@gmail.com";
+
+           if(mail($to,$Subject,$Msg,$Email))
+           {
+               header("index.php?success");
+           }
+       }
+    }
+    else
+    {
+        header("index.php");
+    }
+?>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -20,7 +49,7 @@
             <div class="col-8 profile-detail">
                 <h1>Isaac  John</h1>
                 <h3>Web Developer</h3>
-                <button class="contact-me" id="#form">CONTACT ME</button><br>
+               <a href="#contact"><button class="contact-me" id="#form">CONTACT ME</button></a> <br>
                 <div class="mt-4 row-cols-6 badge">
                    
                 </div>
@@ -159,7 +188,7 @@
           </section>
 
           <section class="mx-auto row col-6" id="form">
-          <h2 class="mt-5 mb-5 text-center">Contact Me</h2>
+          <h2 class="mt-5 mb-5 text-center" id="contact">Contact Me</h2>
           <p class="text-center">I am available to work on your projects and bring your ideas to life. I am just a click away.</p>   
             </div>
 
@@ -180,7 +209,7 @@
                         ?>
               
                     <div class="card-body">
-                        <form action="process.php" method="post">
+                        <form action="" method="post">
                             <input type="text" name="UName" placeholder="User Name" class="mb-2 form-control">
                             <input type="email" name="Email" placeholder="Email" class="mb-2 form-control">
                             <input type="text" name="Subject" placeholder="Subject" class="mb-2 form-control">
