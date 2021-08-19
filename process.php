@@ -7,17 +7,19 @@
        $Subject = $_POST['Subject'];
        $Msg = $_POST['msg'];
 
-       if(!empty($UserName) || !empty($Email) || !empty($Subject) || !empty($Msg))
+       if(empty($UserName) || empty($Email) || empty($Subject) || empty($Msg))
        {
            header('Location:index.php?error');
        }
        else
        {
-           $to = "imazik4004@gmail.com";
+           $toEmail = "imazik4004@gmail.com";
+           $mailHeaders = "From: " . $UserName . "<". $Email .">\r\n";
 
-           if(mail($to,$Subject,$Msg,$Email))
+           if(mail($toEmail,$Subject,$Msg,$Email))
            {
-               header('Location:index.php?success');
+            $message = "Your contact information is received successfully.";
+        
            }
        }
     }
@@ -26,3 +28,4 @@
         header('Location:index.php');
     }
 ?>
+
