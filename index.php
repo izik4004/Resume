@@ -209,7 +209,7 @@
                         ?>
               
                     <div class="card-body">
-                        <form action="" method="post">
+                        <form action="<?=$_SERVER['PHP_SELF'];?>" method="post">
                             <input type="text" name="UName" placeholder="User Name" class="mb-2 form-control">
                             <input type="email" name="Email" placeholder="Email" class="mb-2 form-control">
                             <input type="text" name="Subject" placeholder="Subject" class="mb-2 form-control">
