@@ -1,6 +1,33 @@
+<?php 
+    $message_sent = false;
+    if (isset($_POST['email']) && $_POST['email'] != '') {
+       
+        if(filter_var($_POST['name'], FILTER_VALIDATE_EMAIL)) {
+        
+            $userName = $_POST['name'];
+            $userEmail = $_POST['email'];
+            $messageSubject = $_POST['subject'];
+            $Message = $_POST['message'];
+            
+            $to = "imazik4004@gmail.com";
+            $body = "";
+            
+            $body .= "From: ".$userName. "\r\n";
+            $body .= "Email: ".$userEmail. "\r\n";
+            $body .= "From: ".$message. "\r\n";
+            
+            // mail($to,$message,$body);
+
+            $message_sent = true;
+    }
+
+  
+}
+   
+?>
 
 
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,7 +35,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume | Isaac John</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="form.css">
+
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
@@ -163,41 +190,45 @@
 
           <section class="mx-auto row col-6" id="form">
           <h2 class="mt-5 mb-5 text-center">Contact Me</h2>
-          <p class="text-center">I am available to work on your projects and bring your ideas to life. I am just a click away.</p>
-        
-          <hr>
-                        <?php 
-                            $Msg = "";
-                            if(isset($_GET['error']))
-                            {
-                                $Msg = " Please Fill in the Blanks ";
-                                echo '<div class="alert alert-danger">'.$Msg.'</div>';
-                            }
+          <p class="text-center">I am available to work on your projects and bring your ideas to life. I am just a click away.</p>   
+            </div>
 
-                            if(isset($_GET['success']))
-                            {
-                                $Msg = " Your Message Has Been Sent ";
-                                echo '<div class="alert alert-success">'.$Msg.'</div>';
-                            }
-                        
-                        ?>
-                    </div>
-                    <div class="card-body">
-                    <form id="fs-frm" name="simple-contact-form" accept-charset="utf-8" action="https://formspree.io/imazik4004@gmail.com" method="post">
-                    <fieldset id="fs-frm-inputs">
-                        <label for="full-name">Full Name</label>
-                        <input type="text" name="name" id="full-name" placeholder="Full Name" required="">
-                        <label for="email-address">Email Address</label>
-                        <input type="email" name="_replyto" id="email-address" placeholder="Email" required="">
-                        <label for="message">Message</label>
-                        <textarea rows="5" name="message" id="message" placeholder="Your message" required=""></textarea>
-                        <input type="hidden" name="_subject" id="email-subject" value="Contact Form Submission">
-                    </fieldset>
-                    <input type="submit" value="Submit">
+            <?php
+                if($message_sent):
+            ?>
+                <h2> Thanks, I will get in touch with you</h2>
+            <?php
+            else:
+            ?>
+                <div class="container">
+                    <form action="index.php" method="POST" class="form">
+                        <div class="mb-4 form-group">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="name" tabindex="1" required>
+                        </div>
+                        <div class="mb-4 form-group">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="email" tabindex="2" required>
+                        </div>
+                        <div class="mb-4 form-group">
+                            <label for="subject" class="form-label">Subject</label>
+                            <input type="text" class="form-control" id="subject" name="subject" placeholder="subject" tabindex="3" required>
+                        </div>
+                        <div class="mb-4 form-group">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" rows="5" cols="50" id="message" name="message" placeholder="Enter Message..." tabindex="4"></textarea>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn">Send Message!</button>
+                        </div>
                     </form>
+                 </div>
 
-                    </div>
+                 <?php
+                 endif;
+                 ?>
         </section>
          
     </body>
 </html>
+
