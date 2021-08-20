@@ -6,7 +6,7 @@
     $message = $_POST['message'];
   
 
-    $to = "asdf@gmail.com";
+    $to = "izik4004@gmail.com";
     $subject = "Site contact form";
 
     $header = "From: ".$email."\r\n";
