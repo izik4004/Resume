@@ -160,36 +160,38 @@
               
           </section>
 
-          <section class="mx-auto row col-6" id="form">
+          <section class="mx-auto mb-5 row col-6" id="form">
           <h2 class="mt-5 mb-5 text-center" id="contact">Contact Me</h2>
           <p class="text-center">I am available to work on your projects and bring your ideas to life. I am just a click away.</p>   
             </div>
 
-            <form action="#">
-      <div class="dbl-field">
-        <div class="mb-4 field">
-          <input type="text" name="name" class="form-control" placeholder="Name">  
-        </div>
-        <div class="mb-4 field">
-          <input type="text" name="email" class="form-control" placeholder="Email">
-          <i class='fas fa-envelope'></i>
-        </div>
-      </div>
-      <div class="dbl-field">
-        <div class="mb-4 field">
-          <input type="text" name="phone" class="form-control" placeholder="Phone">
-          <i class='fas fa-phone-alt'></i>
-        </div>
-      </div>
-      <div class="mb-4 message">
-        <textarea placeholder="Write your message" class="form-control" name="message"></textarea>
-      </div>
-      <div class="button-area">
-        <button type="submit" class="btn btn-primary">Send Message</button>
-        <span></span>
-      </div>
-    </form>
+            <form action="#" class="">
+                <div class="dbl-field">
+                    <div class="mb-4 field">
+                    <input type="text" name="name" class="form-control" placeholder="Name">  
+                    </div>
+                    <div class="mb-4 field">
+                    <input type="text" name="email" class="form-control" placeholder="Email">
+                    </div>
+                </div>
+                <div class="dbl-field">
+                    <div class="mb-4 field">
+                    <input type="text" name="phone" class="form-control" placeholder="Phone">
+                    </div>
+                </div>
+                <div class="mb-4 message">
+                    <textarea placeholder="Write your message" class="form-control" name="message"></textarea>
+                </div>
+                <div class="button-area">
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                    <span></span>
+                </div>
+            </form>
         </section>
+
+        <footer>
+            
+        </footer>
          
         <script src="scripts.js"></script>
     </body>
