@@ -165,17 +165,9 @@
           <p class="text-center">I am available to work on your projects and bring your ideas to life. I am just a click away.</p>   
             </div>
 
-            <form action="https://formsubmit.co/your@email.com" method="POST">
-                <div class="mb-3">
-                <label for="email" class="form-label" >Email</label>
-                <input type="text" class="form-control" name="email" placeholder="email">
-                </div>
-                <div class="mb-3">
-                <label for="message" class="form-label">Message</label>
-                <textarea class="form-control" name="message" rows="3" placeholder="write your message here"></textarea>
-                </div>
-                <input type="hidden" name="_next" value="thankyou.html">
-  
+            <form action="https://formsubmit.co/imazik4004@gmail.com" method="POST">
+                <input type="text" name="name" required></br>
+                <input type="email" name="email" required>
                 <button type="submit" class="btn btn-primary">Send</button>
             </form> 
         </section>
