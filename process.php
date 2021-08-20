@@ -1,31 +1,28 @@
-<?php 
+<?php
+    if(isset($_POST['submit'])) {
 
-    if(isset($_POST['btn-send']))
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $message = $_POST['message'];
+  
+
+    $to = "asdf@gmail.com";
+    $subject = "Site contact form";
+
+    $header = "From: ".$email."\r\n";
+    $header .= "Cc: ".$email."\n";
+    $header .= "Reply-To : ".$email."\r\n";
+    $header .= "Return-Path : ".$email."\r\n";
+    $header .= "X-Mailer: PHP\r\n";
+    $header .= "MIME-Version: 1.0\r\n";
+    $header .= "Content-Type: text/plain; charset=iso-8859-1\r\n";
+
+    if(mail($to, $subject, $message, $header))
     {
-       $UserName = $_POST['UName'];
-       $Email = $_POST['Email'];
-       $Subject = $_POST['Subject'];
-       $Msg = $_POST['msg'];
-
-       if(empty($UserName) || empty($Email) || empty($Subject) || empty($Msg))
-       {
-           header('Location:index.php?error');
-       }
-       else
-       {
-           $toEmail = "imazik4004@gmail.com";
-           $mailHeaders = "From: " . $UserName . "<". $Email .">\r\n";
-
-           if(mail($toEmail,$Subject,$Msg,$Email))
-           {
-            $message = "Your contact information is received successfully.";
-        
-           }
-       }
+      echo "Mail Sent Successfully";
+    }else{
+      echo "Mail Not Sent";
     }
-    else
-    {
-        header('Location:index.php');
-    }
-?>
 
+    }
+    ?>
