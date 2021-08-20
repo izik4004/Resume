@@ -165,30 +165,33 @@
           <p class="text-center">I am available to work on your projects and bring your ideas to life. I am just a click away.</p>   
             </div>
 
-
-            
-          
-            <form method="POST" action="process.php">
-            <div class="mb-3">
-                <label for="name" class="form-label">Name</label>
-                <input type="text" class="form-control" name="name" placeholder="name">
-            </div> 
-            <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="text" class="form-control" name="email" placeholder="email">
-            </div>
-            <div class="mb-3">
-                <label for="message" class="form-label">Message</label>
-                <textarea class="form-control" name="message" rows="3"></textarea>
-            </div>
-	
-	<div class="input-wrap">
-		<input type="submit" name="submit" value="Submit" class="submit-button">
-	</div>
-</form>
-
+            <form action="#">
+      <div class="dbl-field">
+        <div class="mb-4 field">
+          <input type="text" name="name" class="form-control" placeholder="Name">  
+        </div>
+        <div class="mb-4 field">
+          <input type="text" name="email" class="form-control" placeholder="Email">
+          <i class='fas fa-envelope'></i>
+        </div>
+      </div>
+      <div class="dbl-field">
+        <div class="mb-4 field">
+          <input type="text" name="phone" class="form-control" placeholder="Phone">
+          <i class='fas fa-phone-alt'></i>
+        </div>
+      </div>
+      <div class="mb-4 message">
+        <textarea placeholder="Write your message" class="form-control" name="message"></textarea>
+      </div>
+      <div class="button-area">
+        <button type="submit" class="btn btn-primary">Send Message</button>
+        <span></span>
+      </div>
+    </form>
         </section>
          
+        <script src="scripts.js"></script>
     </body>
 </html>
 
