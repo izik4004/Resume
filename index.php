@@ -165,28 +165,19 @@
           <p class="text-center">I am available to work on your projects and bring your ideas to life. I am just a click away.</p>   
             </div>
 
-            <form action="#" class="">
-                <div class="dbl-field">
-                    <div class="mb-4 field">
-                    <input type="text" name="name" class="form-control" placeholder="Name">  
-                    </div>
-                    <div class="mb-4 field">
-                    <input type="text" name="email" class="form-control" placeholder="Email">
-                    </div>
+            <form action="https://formsubmit.co/your@email.com" method="POST">
+                <div class="mb-3">
+                <label for="email" class="form-label" >Email</label>
+                <input type="text" class="form-control" name="email" placeholder="email">
                 </div>
-                <div class="dbl-field">
-                    <div class="mb-4 field">
-                    <input type="text" name="phone" class="form-control" placeholder="Phone">
-                    </div>
+                <div class="mb-3">
+                <label for="message" class="form-label">Message</label>
+                <textarea class="form-control" name="message" rows="3" placeholder="write your message here"></textarea>
                 </div>
-                <div class="mb-4 message">
-                    <textarea placeholder="Write your message" class="form-control" name="message"></textarea>
-                </div>
-                <div class="button-area">
-                    <button type="submit" class="btn btn-primary">Send Message</button>
-                    <span></span>
-                </div>
-            </form>
+                <input type="hidden" name="_next" value="thankyou.html">
+  
+                <button type="submit" class="btn btn-primary">Send</button>
+            </form> 
         </section>
 
         <footer>
